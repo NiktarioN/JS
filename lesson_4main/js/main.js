@@ -28,7 +28,7 @@ let appData = {
 				appData.expenses[a] = b;
 			} else {
 				alert("Пожалуйста, не оставляйте строки пустыми");
-				--i;
+				i--;
 			}
 		}
 	},
@@ -56,24 +56,37 @@ let appData = {
 			alert("Доход в месяц с вашего депозита: " + appData.mothIncome);
 		}
 	},
-	chooseOptExpenses: function() {
+	chooseOptExpenses: function () {
 		for (let i = 0; i < 3; i++) {
 			let optional = prompt("Статья необязательных расходов?", "Хлеб");
-			if ((typeof (optional)) === 'string' && (typeof (optional) != null) && optional != ' ' && optional.length < 50) {
+			if ((typeof (optional)) === 'string' && (typeof (optional) != null) && optional != '' && optional.trim() && optional.length < 50) {
 				appData.optionalExpenses[i] = optional;
 			} else {
 				alert("Пожалуйста, не оставляйте строки пустыми");
-				--i;
+				i--;
 			}
 		}
 	},
 	chooseIncome: function () {
-		let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
-		appData.income = items.split(', ');
-		appData.income.push(prompt("Может быть нужно что-то еще?"));
-		appData.income.sort();
-		appData.income.forEach(function(item, i){
-			alert("Способы доп. заработка: " + item);
+		for (let i = 0; i < 1; i++) {
+			let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "я, люблю, изучать, js");
+			if ((typeof (items)) === 'string' && (typeof (items) !== null) && items != '' && items.trim()) {
+				appData.income = items.split(', ');
+				appData.income.push(prompt("Может быть нужно что-то еще?", "просто прогать"));
+				appData.income.sort();
+			} else {
+				alert("Введенные данные неправильные. Пожалуйста, введите их заново");
+				i--;
+			}
+		}
+		document.body.innerHTML += 'Способы дополнительного заработка:' + '<br>';
+		appData.income.forEach(function (item, i) {
+			document.body.innerHTML += i + 1 + ': ' + item + '<br>';
 		});
 	}
 };
+
+console.log('Наша программа включает в себя данные: ');
+for (let key in appData) {
+	console.log(key + ' : ' + appData[key]);
+}
