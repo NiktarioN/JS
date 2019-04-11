@@ -25,17 +25,15 @@ let appData = {
 
 			if ((typeof (a)) === 'string' && (typeof (a) != null) && (typeof (b) != null) &&
 				a != ' ' && b != ' ' && a.length < 50) {
-				console.log("done");
 				appData.expenses[a] = b;
 			} else {
 				alert("Пожалуйста, не оставляйте строки пустыми");
-				--i;
+				i--;
 			}
 		}
 	},
 	detectDayBudget: function () {
 		appData.moneyPerDay = (appData.moneyData / 30).toFixed();
-		console.log(appData);
 		alert("Ваш бюджет на день: " + appData.moneyPerDay);
 	},
 	detectLevel: function () {
@@ -58,15 +56,37 @@ let appData = {
 			alert("Доход в месяц с вашего депозита: " + appData.mothIncome);
 		}
 	},
-	chooseExpenses: function() {
+	chooseOptExpenses: function () {
 		for (let i = 0; i < 3; i++) {
 			let optional = prompt("Статья необязательных расходов?", "Хлеб");
-			if ((typeof (optional)) === 'string' && (typeof (optional) != null) && optional != ' ' && optional.length < 50) {
+			if ((typeof (optional)) === 'string' && (typeof (optional) != null) && optional != '' && optional.trim() && optional.length < 50) {
 				appData.optionalExpenses[i] = optional;
 			} else {
 				alert("Пожалуйста, не оставляйте строки пустыми");
-				--i;
+				i--;
 			}
 		}
+	},
+	chooseIncome: function () {
+		for (let i = 0; i < 1; i++) {
+			let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "я, люблю, изучать, js");
+			if ((typeof (items)) === 'string' && (typeof (items) !== null) && items != '' && items.trim()) {
+				appData.income = items.split(', ');
+				appData.income.push(prompt("Может быть нужно что-то еще?", "просто прогать"));
+				appData.income.sort();
+			} else {
+				alert("Введенные данные неправильные. Пожалуйста, введите их заново");
+				i--;
+			}
+		}
+		document.body.innerHTML += 'Способы дополнительного заработка:' + '<br>';
+		appData.income.forEach(function (item, i) {
+			document.body.innerHTML += i + 1 + ': ' + item + '<br>';
+		});
 	}
 };
+
+console.log('Наша программа включает в себя данные: ');
+for (let key in appData) {
+	console.log(key + ' : ' + appData[key]);
+}
