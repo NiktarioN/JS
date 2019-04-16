@@ -149,7 +149,7 @@ btnOptionalExpenses.addEventListener('click', function () {
 
 // Расчет бюджета на день и уровень достатка
 btnBudgetCount.addEventListener('click', function () {
-	if (appData.moneyData != undefined) {
+	if (appData.moneyData != undefined && appData.sumExp != undefined) {
 		appData.moneyPerDay = ((appData.moneyData - appData.sumExp) / 30).toFixed();
 		dayBudgetValue.textContent = appData.moneyPerDay + ' руб.';
 
