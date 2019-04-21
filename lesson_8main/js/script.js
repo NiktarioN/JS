@@ -93,8 +93,10 @@ window.addEventListener('DOMContentLoaded', function () {
 	setClock('timer', deadLine);
 
 	// ПРОКРУТКА МЕНЮ
-	// let menuNav = document.querySelector('header nav'),
-	// menuItem = document.querySelectorAll('nav li'),
-	// content = document.querySelectorAll('.content');
-	// console.log(content);
+	let menu = document.querySelector('header'),
+	menuItem = menu.querySelectorAll('a');
+
+	function navigationMenu () {
+		
+	}
 });
