@@ -110,45 +110,45 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 
 
-	// МОДАЛЬНОЕ ОКНО 
-	let more = document.querySelector('.more'),
-		overlay = document.querySelector('.overlay'),
-		close = document.querySelector('.popup-close'),
-		descTabsBtn = document.querySelectorAll('.description-btn'),
-		body = document.body;
+	// // МОДАЛЬНОЕ ОКНО 
+	// let more = document.querySelector('.more'),
+	// 	overlay = document.querySelector('.overlay'),
+	// 	close = document.querySelector('.popup-close'),
+	// 	descTabsBtn = document.querySelectorAll('.description-btn'),
+	// 	body = document.body;
 
-	function showModal() {
-		overlay.style.display = 'block';
-		this.classList.add('more-splash');
-		document.body.style.overflow = 'hidden';
-	}
+	// function showModal() {
+	// 	overlay.style.display = 'block';
+	// 	this.classList.add('more-splash');
+	// 	document.body.style.overflow = 'hidden';
+	// }
 
-	function hideModal(button) {
-		close.addEventListener('click', function () {
-			overlay.style.display = 'none';
-			button.classList.remove('more-splash');
-			document.body.style.overflow = '';
-		});
-	}
+	// function hideModal(button) {
+	// 	close.addEventListener('click', function () {
+	// 		overlay.style.display = 'none';
+	// 		button.classList.remove('more-splash');
+	// 		document.body.style.overflow = '';
+	// 	});
+	// }
 
-	function hideModal(button) {
-			overlay.style.display = 'none';
-			button.classList.remove('more-splash');
-			document.body.style.overflow = '';
-	}
+	// function hideModal(button) {
+	// 		overlay.style.display = 'none';
+	// 		button.classList.remove('more-splash');
+	// 		document.body.style.overflow = '';
+	// }
 
-	body.addEventListener('click', function (event) {
-		let target = event.target;
-		if (target && target.classList.contains('more')) {
-			showModal.call(more);
-		}
-		if (target && target.classList.contains('description-btn')) {
-				showModal.classList(descTabsBtn);
-				hideModal(descTabsBtn);
-		}
-		if (target && target.classList.contains ('popup-close')) {
+	// body.addEventListener('click', function (event) {
+	// 	let target = event.target;
+	// 	if (target && target.classList.contains('more')) {
+	// 		showModal.call(more);
+	// 	}
+	// 	if (target && target.classList.contains('description-btn')) {
+	// 			showModal.classList(descTabsBtn);
+	// 			hideModal(descTabsBtn);
+	// 	}
+	// 	if (target && target.classList.contains ('popup-close')) {
 
-		}
-	});
+	// 	}
+	// });
 
 });
